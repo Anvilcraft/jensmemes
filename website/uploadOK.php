@@ -16,6 +16,7 @@ if(!empty($rowtoken) || !empty($rowpost)){
   //echo "<b>Authenticated.</b>";
 }else{
   $uploadOK = false;
-  echo "unauthenticated.";
+  echo "<b>unauthenticated.</b>";
 }
+
  ?>
