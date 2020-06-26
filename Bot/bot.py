@@ -16,6 +16,8 @@ async def on_ready():
 
 @bot.command()
 async def register(ctx):
+    if not ctx.guild.id in allowedDiscordServer:
+        return
     name = ctx.author.name
     token = md5(str(ctx.author.id).encode()).hexdigest()
     user = bot.get_user(ctx.author.id)
