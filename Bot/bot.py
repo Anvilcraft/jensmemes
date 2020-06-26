@@ -18,7 +18,7 @@ async def on_ready():
 async def register(ctx):
     if not ctx.guild.id in allowedDiscordServer:
         return
-    name = ctx.author.name
+    name = str(ctx.author)
     token = md5(str(ctx.author.id).encode()).hexdigest()
     user = bot.get_user(ctx.author.id)
 
@@ -30,6 +30,6 @@ async def register(ctx):
         db.commit()
     db.close() 
 
-    await user.send("Your Token for Jensmemes is " + token)
+    await user.send("Your Token for Jensmemes is " + token + "\n You can now use https://jensmemes.tilera.xyz/ !")
 
 bot.run(token, bot=botAccount)#start the bot with the options in config.py
