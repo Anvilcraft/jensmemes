@@ -53,6 +53,7 @@
             <option value="light">LordMZTE</option>
 	          <option value="old">Old</option>
             <option value="retro">Retro</option>
+            <option value="dark">Dark</option>
           </select>
         </div>
         <script src="switcher.js"></script>
