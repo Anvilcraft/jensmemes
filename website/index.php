@@ -5,7 +5,7 @@
   <title>JensMemes v2</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link id="theme" rel="stylesheet" href="themes/lama.css" />
+  <link id="theme" rel="stylesheet" href="themes/llama.css" />
   <script defer src="script.js"></script>
   <script defer src="button.js"></script>
 </head>
@@ -49,7 +49,7 @@
         <div id="themediv">
           <p>Theme:</p>
           <select name="Themes" id="themeswitcher">
-            <option value="lama">Lama</option>
+            <option value="llama">Llama</option>
             <option value="light">LordMZTE</option>
 	          <option value="old">Old</option>
             <option value="retro">Retro</option>
