@@ -83,10 +83,10 @@
       //UPLOAD
       if (isset($_POST['submit'])) {
         include('uploadOK.php');
+	if(empty($tokencookie)) {
+	  $tokencookie = $_POST['token'];
+	}
         $home_dir = "images/" . md5($tokencookie) . "/";
-        if ($home_dir == "images//") {
-          $home_dir = "images/" . md5($_POST['token']) . "/";
-        }
         mkdir($home_dir);
 
         $resultMaxUpl = mysqli_query($con, "select * from token WHERE token='$tokencookie' OR token='$tokenpost'") or die('Error In Session');
