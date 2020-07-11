@@ -18,18 +18,21 @@ async def on_ready():
 async def register(ctx):
     if not ctx.guild.id in allowedDiscordServer:
         return
-    name = str(ctx.author)
-    token = md5(str(ctx.author.id).encode()).hexdigest()
-    user = bot.get_user(ctx.author.id)
+    try:
+        name = str(ctx.author)
+        token = md5(str(ctx.author.id).encode()).hexdigest()
+        user = bot.get_user(ctx.author.id)
 
-    db = pymysql.connect(sqlServer,sqlUser,sqlPassword,sqlDatabase )
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM token WHERE name=%s AND token=%s", (name, token))
-    if(len(cursor.fetchall()) == 0):
-        cursor.execute("INSERT INTO token (name, token, uploadsLast24H) VALUES (%s, %s, 0)", (name, token))
-        db.commit()
-    db.close() 
+        db = pymysql.connect(sqlServer,sqlUser,sqlPassword,sqlDatabase )
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM token WHERE name=%s AND token=%s", (name, token))
+        if(len(cursor.fetchall()) == 0):
+            cursor.execute("INSERT INTO token (name, token, uploadsLast24H) VALUES (%s, %s, 0)", (name, token))
+            db.commit()
+        db.close() 
 
-    await user.send("Your Token for Jensmemes is " + token + "\n You can now use https://jensmemes.tilera.xyz/ !")
+        await user.send("Your Token for Jensmemes is " + token + "\n You can now use https://jensmemes.tilera.xyz/ !")
+    except:
+        ctx.send("Failed to send message, please check if you have enabled PM")
 
 bot.run(token, bot=botAccount)#start the bot with the options in config.py
