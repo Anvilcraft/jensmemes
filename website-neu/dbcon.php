@@ -2,7 +2,7 @@
 
 $SQLHost = "db.a-hoefler.eu";
 $SQLUser = "root";
-$SQLPasswort = "bqCdUHZYgHeTd583kZ3cMVd9";
+$SQLPasswort = "";
 $SQLDatenbank = "jensmemes";
 $con = mysqli_connect($SQLHost, $SQLUser, $SQLPasswort, $SQLDatenbank);
 
