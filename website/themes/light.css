@@ -1,0 +1,208 @@
+:root {
+    --rainbow: #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff;
+}
+
+body {
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url(/img/bg.png);
+    background-repeat: repeat;
+    background-size: 100px;
+    font-family: "Arial";
+    letter-spacing: 0.2px;
+    margin-top: 0px;
+}
+
+.Bilder_ {
+    object-fit: contain;
+    padding: 10px;
+    height: 100%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.Videos_ {
+    object-fit: contain;
+    padding: 10px;
+    height: 100%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.kasten {
+    background: #000000;
+    align-self: stretch;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: 5px solid grey;
+    float: left;
+    height: 300px;
+    min-height: 10em;
+    border: 5px solid #cc0000;
+}
+
+.bar-main {
+    border: 5px solid #000000;
+    background: linear-gradient(to right, var(--rainbow));
+    text-align: center;
+}
+
+#btn-close-CSS {
+    background: url(/img/upload.png) no-repeat;
+    display: flex;
+    justify-content: space-around;
+    background-size: contain;
+    background-position: center;
+    color: white;
+    background-color: lightgray;
+    border: noe;
+    height: 50px;
+    width: 50px;
+}
+
+.img-fixed-info {
+    position: fixed;
+    width: 40px;
+}
+
+input[type="text"] {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.btn-logout {
+    background: url(/img/logout.png) no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: white;
+    background-color: transparent;
+    border: none;
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+
+#custom-button {
+    padding: 5px;
+    color: white;
+    background-color: #009578;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+#custom-button:hover {
+    background-color: #32353b;
+}
+
+#custom-text {
+    margin-left: 10px;
+    color: #aaa;
+}
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 5px solid #cc0000;
+    z-index: 10;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url(/img/bg.png);
+    background-repeat: repeat;
+    background-size: 100px;
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#themediv {
+    float: left;
+}
+
+.close-button {
+    position: absolute;
+    right: 0px;
+    width: 30px;
+    font-size: 20px;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 53, 59, 0.9);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.btn-modal {
+    background: url(/img/info.png) no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: white;
+    background-color: transparent;
+    border: none;
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    font-weight: bold;
+    color: green;
+}
