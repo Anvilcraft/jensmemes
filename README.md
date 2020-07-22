@@ -1,2 +1,2 @@
-#JensMemes v2<br>
-	~ITbyHF, LordMZTE, jonasled, tilera
+#JensMemes v2
+>\textbf{ITbyHF, LordMZTE, jonasled, tilera}
