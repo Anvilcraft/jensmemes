@@ -7,10 +7,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link id="theme" rel="stylesheet" href="themes/llama.css" />
-  <script defer src="/script/modal.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        <script defer src="/script/modal.js"></script>
   <script defer src="/script/button.js"></script>
   <script defer src="/script/switcher.js"></script>
-
+  <!--  <script src="/script/preload.js"></script> --!>
+    <script src="script/show.js"></script>
 </head>
 
 <body class="">
@@ -69,6 +71,19 @@
             <option value="dark">Dark</option>
           </select>
         </div>
+
+          <div id="themediv">
+
+              <p>Anzeigen::</p>
+          <select id='show'>
+          <option value="0" selected>All</option>
+          <option value="1">JensMemes</option>
+          <option value="2">Realtox Memes</option>
+          <option value="3">Hendrik Memes</option>
+          <option value="4">Random Memes</option>
+          <option value="5">Hide all Memes</option>
+          </select>
+          </div>
         <?php
         $tokencookie = $_COOKIE['token'];
         if (!empty($tokencookie)) {
