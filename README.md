@@ -1,2 +1,2 @@
 #JensMemes v2
->\textbf{ITbyHF, LordMZTE, jonasled, tilera}
+>**ITbyHF, LordMZTE, jonasled, tilera}**
