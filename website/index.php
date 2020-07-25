@@ -54,6 +54,22 @@
           }
       }
       ?>
+      <?php
+      include 'dbcon.php';
+      $sqlCats = "SELECT * FROM cats";
+      $db_ergCats = mysqli_query( $con, $sqlCats);
+      $cats = array();
+      $i = 0;
+      if ( ! $db_ergCats )
+      {
+          die('Ungültige Abfrage: ' . mysqli_error($con));
+      }
+      while ($row = mysqli_fetch_array($db_ergCats, MYSQLI_ASSOC)) {
+          $cats[$i] = $row[id] . ":" . $row[name];
+          $i++;
+      }
+      mysqli_free_result( $db_ergCats );
+      ?>
     <div>
       <h2>
         <center></center>
@@ -101,10 +117,13 @@
           ?>
             <label for="type">Memetype</label>
             <select id="type" name="type">
-                <option value="jens">JensMeme</option>
-                <option value="hendrik">HendrikMeme</option>
-                <option value="realtox">RealtoxMeme</option>
-                <option value="random">RandomMeme</option>
+                <?php
+                foreach ($cats as $cat) {
+                    $parts = explode(":", $cat);
+                    echo '<option value="' . $parts[0] . '">' . $parts[1] . '</option>';
+                }
+                ?>
+
             </select>
 
           <center><input type='submit' name='submit' id="btn-close-CSS" value=''></center>
