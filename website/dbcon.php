@@ -1,7 +1,7 @@
 <?php
 
 include "config.php";
-$con = mysqli_connect(SQLHost, SQLUser, SQLPasswort, SQLDatenbank);
+$con = mysqli_connect("SQLHost", "SQLUser", "SQLPasswor"t, "SQLDatenbank");
 
 // Check connection
 if (mysqli_connect_errno())
