@@ -7,8 +7,7 @@ from hashlib import md5
 import random
 import string
 
-bot = commands.Bot(command_prefix=prefix)
-@commands.cooldown(1, 30, commands.BucketType.user)
+bot = commands.Bot(command_prefix=prefix
 @bot.event #print the username and id to the console and change the game status
 async def on_ready():
     print('Logged in as')
