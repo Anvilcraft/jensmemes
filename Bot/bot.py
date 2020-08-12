@@ -23,7 +23,7 @@ async def register(ctx):
     try:
         name = str(ctx.author)
         letters = string.ascii_letters
-        token = ( ''.join(random.choice(letters) for i in range(10)) )
+        token = ( ''.join(random.choice(letters) for i in range(35)) )
         user = bot.get_user(ctx.author.id)
 
         db = pymysql.connect(sqlServer,sqlUser,sqlPassword,sqlDatabase )
