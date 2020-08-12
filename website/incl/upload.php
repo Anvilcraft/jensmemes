@@ -30,11 +30,13 @@ if (isset($_POST['submit'])) {
                 $memecat = $_POST['type'];
                 $user = $rowToken['name'];
                 $path = $home_dir.$filename;
-                $sqlType = "INSERT INTO images (user, path, cat) VALUES ('$user', '$path', '$memecat')";
+                $clientIP =$_SERVER['REMOTE_ADDR'];;
+                $sqlType = "INSERT INTO images (user, path, cat, ip) VALUES ('$user', '$path', '$memecat', '$clientIP')";
                 $resultType = mysqli_query($con,$sqlType);
                 if(!$resultType){
                     echo 'Error ' .mysqli_error($con);
                 }
+                
 
             }
             if (empty($_COOKIE['token'])) {
