@@ -65,7 +65,7 @@
           die('Ungültige Abfrage: ' . mysqli_error($con));
       }
       while ($row = mysqli_fetch_array($db_ergCats, MYSQLI_ASSOC)) {
-          $cats[$i] = $row[id] . ":" . $row[name];
+          $cats[$i] = $row["id"] . ":" . $row["name"];
           $i++;
       }
       mysqli_free_result( $db_ergCats );
