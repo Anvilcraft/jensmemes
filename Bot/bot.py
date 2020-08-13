@@ -4,9 +4,10 @@ from discord.ext import commands, tasks
 from config import *
 import pymysql
 from hashlib import md5
+import random
+import string
 
-bot = commands.Bot(command_prefix=prefix)
-
+bot = commands.Bot(command_prefix=prefix
 @bot.event #print the username and id to the console and change the game status
 async def on_ready():
     print('Logged in as')
@@ -20,7 +21,8 @@ async def register(ctx):
         return
     try:
         name = str(ctx.author)
-        token = md5(str(ctx.author.id).encode()).hexdigest()
+        letters = string.ascii_letters
+        token = ( ''.join(random.choice(letters) for i in range(35)) )
         user = bot.get_user(ctx.author.id)
 
         db = pymysql.connect(sqlServer,sqlUser,sqlPassword,sqlDatabase )
