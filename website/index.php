@@ -11,6 +11,7 @@
         <script defer src="/script/modal.js"></script>
   <script defer src="/script/button.js"></script>
   <script defer src="/script/switcher.js"></script>
+  <script defer src="/script/modal.js"></script>
     <script src="script/show.js"></script>
 </head>
 
