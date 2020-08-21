@@ -7,14 +7,6 @@ if (isset($_POST['submit'])) {
     $home_dir = "images/" . md5($tokencookie) . "/";
     mkdir($home_dir);
 
-    $resultMaxUpl = mysqli_query($con, "select * from token WHERE token='$tokencookie' OR token='$tokenpost'") or die('Error In Session');
-    $rowMaxUpl = mysqli_fetch_array($resultMaxUpl);
-    $MaxUpl = $rowMaxUpl['uploadsLast24H'];
-    $MaxUpl++;
-    $sqlMaxUpl = "UPDATE token SET uploadsLast24H='$MaxUpl' WHERE token='$tokencookie' OR token='$tokenpost'";
-    mysqli_query($con, $sqlMaxUpl);
-
-
     $resultToken=mysqli_query($con, "select * from token WHERE token='$tokencookie' OR token='$tokenpost'")or die('ERR_resultToken');
     $rowToken=mysqli_fetch_array($resultToken);
 
@@ -24,6 +16,15 @@ if (isset($_POST['submit'])) {
         if ($MaxUpl <= 20) {
             $countfiles = count($_FILES['file']['name']);
             for ($i = 0; $i < $countfiles; $i++) {
+                
+                $resultMaxUpl = mysqli_query($con, "select * from token WHERE token='$tokencookie' OR token='$tokenpost'") or die('Error In Session');
+                $rowMaxUpl = mysqli_fetch_array($resultMaxUpl);
+                $MaxUpl = $rowMaxUpl['uploadsLast24H'];
+                $MaxUpl++;
+                $sqlMaxUpl = "UPDATE token SET uploadsLast24H='$MaxUpl' WHERE token='$tokencookie' OR token='$tokenpost'";
+                mysqli_query($con, $sqlMaxUpl);
+                
+                
                 $filename = $_FILES['file']['name'][$i];
                 move_uploaded_file($_FILES['file']['tmp_name'][$i], $home_dir . $filename);
 
