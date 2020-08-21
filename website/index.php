@@ -7,8 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link id="theme" rel="stylesheet" href="themes/llama.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-        <script defer src="/script/modal.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script defer src="/script/button.js"></script>
   <script defer src="/script/switcher.js"></script>
   <script defer src="/script/modal.js"></script>
