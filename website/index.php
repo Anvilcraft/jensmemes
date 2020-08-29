@@ -96,7 +96,7 @@
         if (!empty($tokencookie)) {
           echo '<b style="color:red;">Authentifiziert</b>';
         } ?>
-        <form method='post' action='#' enctype='multipart/form-data'>
+        <form method='post' action='https://jensmemes.tilera.xyz/api/upload' enctype='multipart/form-data'>
           <input type="file" id="real-file" hidden="hidden" name="file[]" multiple="" />
           <button type="button" id="custom-button">Browse...</button>
           <span id="custom-text"></span>
@@ -105,10 +105,11 @@
             echo '
          <input type="text" name="token" id="token" placeholder="Token">';
           } else {
+              echo '<input type="hidden" name="token" value="' . $tokencookie . '">';
           }
           ?>
             <label for="type">Memetype</label>
-            <select id="type" name="type">
+            <select id="type" name="category">
                 <?php
                 foreach ($cats as $cat) {
                     echo '<option value="' . $cat->id . '">' . $cat->name . '</option>';
@@ -126,8 +127,6 @@
       <?php
 
       include "dbcon.php";
-      include "incl/uploadOK.php";
-      include "incl/upload.php";
       include 'incl/img.php';
       include 'incl/clientIP.php';
       ?>
