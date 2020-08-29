@@ -1,5 +1,5 @@
 <?php
-$json = file_get_contents("https://jensmemes.tilera.xyz/api.php/random");
+$json = file_get_contents("https://jensmemes.tilera.xyz/api/random");
 $obj = json_decode($json, false, 512, JSON_UNESCAPED_UNICODE);
 $file = $obj->link;
 $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));

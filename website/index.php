@@ -55,20 +55,12 @@
       }
       ?>
       <?php
-      include 'dbcon.php';
-      $sqlCats = "SELECT * FROM cats";
-      $db_ergCats = mysqli_query( $con, $sqlCats);
-      $cats = array();
-      $i = 0;
-      if ( ! $db_ergCats )
+      $catobj = json_decode(file_get_contents("https://jensmemes.tilera.xyz/api/categories"));
+      $cats = $catobj->categories;
+      if ( $catobj->status != 200 )
       {
-          die('Ungültige Abfrage: ' . mysqli_error($con));
+          die('Ungültige Abfrage: ' . $catobj->error);
       }
-      while ($row = mysqli_fetch_array($db_ergCats, MYSQLI_ASSOC)) {
-          $cats[$i] = $row["id"] . ":" . $row["name"];
-          $i++;
-      }
-      mysqli_free_result( $db_ergCats );
       ?>
     <div>
       <h2>
@@ -119,8 +111,7 @@
             <select id="type" name="type">
                 <?php
                 foreach ($cats as $cat) {
-                    $parts = explode(":", $cat);
-                    echo '<option value="' . $parts[0] . '">' . $parts[1] . '</option>';
+                    echo '<option value="' . $cat->id . '">' . $cat->name . '</option>';
                 }
                 ?>
 

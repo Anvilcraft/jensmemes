@@ -5,35 +5,31 @@ global $cats;
 foreach ($cats as $cate) {
     $parts = explode(":", $cate);
     echo '
-        <div id="' . $parts[0] . '">
-            <h2>' . $parts[1] . '</h2>';
-            $sqlJens = "SELECT * FROM images";
-            $db_ergJens = mysqli_query( $con, $sqlJens);
-                if ( ! $db_ergJens )
+        <div id="' . $cate->name . '">
+            <h2>' . $cate->name . '</h2>';
+            $memeobj = json_decode(file_get_contents("https://jensmemes.tilera.xyz/api/memes?category=" . $cate->id));
+            $memes = $memeobj->memes;
+                if ( $memeobj->status != 200 )
                 {
-                    die('Ungültige Abfrage: ' . mysqli_error());
+                    die('Ungültige Abfrage: ' . $memeobj->error);
                 }
-                while ($zeile = mysqli_fetch_array( $db_ergJens, MYSQLI_ASSOC))
+                foreach ($memes as $meme)
                 {
-                    if($zeile["cat"]==$parts[0]){
-                        $ext = strtolower(pathinfo($zeile['path'], PATHINFO_EXTENSION));
-
+                    $ext = strtolower(pathinfo($meme->link, PATHINFO_EXTENSION));
                     if($ext=="mp4"){
                         echo '
 
                             <div class="kasten">
-                            <a href="'.$zeile["path"].'"><video src="'.$zeile["path"].'" controls class="Videos_"></video> </a>
+                            <a href="'.$meme->link.'"><video src="'.$meme->link.'" controls class="Videos_"></video> </a>
                             </div>
 
                         ';
                     } else if($ext=="png" || $ext=="jpg" ||$ext=="jpeg"||$ext=="gif" ){
                         echo '
                                     <div class="kasten">
-                                    <a href="'.$zeile["path"].'"><img class="Bilder_" src="'.$zeile["path"].'" loading="lazy"></a>
+                                    <a href="'.$meme->link.'"><img class="Bilder_" src="'.$meme->link.'" loading="lazy"></a>
                                     </div>
                                 ';
-                    }
-
                     }
                 }
         mysqli_free_result( $db_ergJens );
