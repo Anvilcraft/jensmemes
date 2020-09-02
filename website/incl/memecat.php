@@ -31,9 +31,8 @@ foreach ($cats as $cate){
                ';
 
         foreach ($cats as $catdis) {
-            if($catdis->name!=$cate->name){
-                $cat_dis = str_replace(" ", '_', $catdis->name);
-                echo '$("#'.$cat_dis.'").hide();';
+            if($catdis->id!=$cate->id){
+                echo '$("#'.$catdis->name.'").hide();';
             }
         }
         echo '
@@ -58,7 +57,6 @@ echo '
 global $cats;
 $c = 0;
 foreach ($cats as $cate) {
-    $cate->id = str_replace(' ', '_', $cate->name);
     if($c==0){
         echo '<option value="'.$cate->id.'" selected>'.$cate->name.'</option>';
         $c=1;
