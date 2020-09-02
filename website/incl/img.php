@@ -33,7 +33,7 @@ foreach ($cats as $cate) {
                     }
                 }
         mysqli_free_result( $db_ergJens );
-    echo '</div>';
+    echo '</div><br clear="all">';
 }
 
 ?>
