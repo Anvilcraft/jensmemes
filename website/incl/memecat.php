@@ -32,7 +32,7 @@ foreach ($cats as $cate){
 
         foreach ($cats as $catdis) {
             if($catdis->id!=$cate->id){
-                echo '$("#'.$catdis->name.'").hide();';
+                echo '$("#'.$catdis->id.'").hide();';
             }
         }
         echo '
