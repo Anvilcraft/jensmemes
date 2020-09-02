@@ -15,7 +15,7 @@
 </head>
 
 <body class="">
-
+<div class="header">
   <div class="modal" id="modal">
     <div class="modal-header">
       <div class="title">Informationen</div>
@@ -105,7 +105,8 @@
                 ?>
 
             </select>
-          <button id="btn-close-CSS"></button>
+	      <button id="btn-close-CSS"></button>
+</div
           <i id="msg"></i>
           <script type="text/javascript">
               $(document).ready(function (e) {
