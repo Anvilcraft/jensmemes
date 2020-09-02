@@ -4,9 +4,8 @@ global $cats;
 foreach ($cats as $cate) {
 
     $parts = explode(":", $cate);
-    $cname = str_replace(' ', '_', $cate->name);
     echo '
-        <div id="' . $cname . '">
+        <div id="' . $cate->id . '">
             <h2>' . $cate->name . '</h2>';
             $memeobj = json_decode(file_get_contents("https://jensmemes.tilera.xyz/api/memes?category=" . $cate->id));
             $memes = $memeobj->memes;
