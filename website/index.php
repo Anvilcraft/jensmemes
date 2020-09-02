@@ -106,7 +106,7 @@
 
             </select>
 	      <button id="btn-close-CSS"></button>
-</div
+	    </div>
           <i id="msg"></i>
           <script type="text/javascript">
               $(document).ready(function (e) {
