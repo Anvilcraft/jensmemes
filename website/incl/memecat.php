@@ -10,10 +10,9 @@ $(document).ready(function(){
 global $cats;
 $c2 = 0;
 foreach ($cats as $cate){
-    $cname = str_replace(' ', '_',$cate->name);
     if($c2==0){
         echo '
-           if(this.value=="'.$cname.'"){
+           if(this.value=="'.$cate->id.'"){
                ';
 
         foreach ($cats as $catdis) {
@@ -23,12 +22,12 @@ foreach ($cats as $cate){
             }
         }
         echo '
-        $("#'.$cname.'").show();
+        $("#'.$cate->id.'").show();
        }';
         $c2=1;
     }else{
         echo '
-           else if(this.value=="'.$cname.'"){
+           else if(this.value=="'.$cate->id.'"){
                ';
 
         foreach ($cats as $catdis) {
@@ -38,7 +37,7 @@ foreach ($cats as $cate){
             }
         }
         echo '
-        $("#'.$cname.'").show();
+        $("#'.$cate->id.'").show();
        }';
     }
 }
@@ -59,12 +58,12 @@ echo '
 global $cats;
 $c = 0;
 foreach ($cats as $cate) {
-    $cname = str_replace(' ', '_', $cate->name);
+    $cate->id = str_replace(' ', '_', $cate->name);
     if($c==0){
-        echo '<option value="'.$cname.'" selected>'.$cate->name.'</option>';
+        echo '<option value="'.$cate->id.'" selected>'.$cate->name.'</option>';
         $c=1;
     }
-    echo '<option value="'.$cname.'">'.$cate->name.'</option>';
+    echo '<option value="'.$cate->id.'">'.$cate->name.'</option>';
 }
 
 echo '</select></div>';
