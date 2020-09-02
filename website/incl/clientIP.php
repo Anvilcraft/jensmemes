@@ -1,7 +1,4 @@
 <?php
-
-include ('../dbcon.php');
-
 $clientIP =$_SERVER['REMOTE_ADDR'];
 $tk = $_COOKIE['token'];
 $sql = "UPDATE `token` SET `latest-ip` = '$clientIP' WHERE `token` = '$tk';

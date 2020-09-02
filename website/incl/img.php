@@ -2,9 +2,11 @@
 <?php
 global $cats;
 foreach ($cats as $cate) {
+
     $parts = explode(":", $cate);
+    $cname = str_replace(' ', '_', $cate->name);
     echo '
-        <div id="' . $cate->name . '">
+        <div id="' . $cname . '">
             <h2>' . $cate->name . '</h2>';
             $memeobj = json_decode(file_get_contents("https://jensmemes.tilera.xyz/api/memes?category=" . $cate->id));
             $memes = $memeobj->memes;
@@ -31,6 +33,7 @@ foreach ($cats as $cate) {
                                 ';
                     }
                 }
+        mysqli_free_result( $db_ergJens );
     echo '</div><br clear="all">';
 }
 

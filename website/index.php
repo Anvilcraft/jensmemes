@@ -79,24 +79,12 @@
           </select>
         </div>
 
-          <div id="themediv">
-
-              <p>Anzeigen::</p>
-          <select id='show'>
-          <option value="0" selected>All</option>
-          <option value="1">JensMemes</option>
-          <option value="2">Realtox Memes</option>
-          <option value="3">Hendrik Memes</option>
-          <option value="4">Random Memes</option>
-          <option value="5">Hide all Memes</option>
-          </select>
-          </div>
         <?php
+        include('incl/memecat.php');
         $tokencookie = $_COOKIE['token'];
         if (!empty($tokencookie)) {
           echo '<b style="color:red;">Authentifiziert</b>';
         } ?>
-        <form method='post' action='https://jensmemes.tilera.xyz/api/upload' enctype='multipart/form-data'>
           <input type="file" id="real-file" hidden="hidden" name="file[]" multiple="" />
           <button type="button" id="custom-button">Browse...</button>
           <span id="custom-text"></span>
@@ -105,7 +93,7 @@
             echo '
          <input type="text" name="token" id="token" placeholder="Token">';
           } else {
-              echo '<input type="hidden" name="token" value="' . $tokencookie . '">';
+              echo '<input type="hidden" id="tokenform" name="token" value="' . $tokencookie . '">';
           }
           ?>
             <label for="type">Memetype</label>
@@ -117,15 +105,48 @@
                 ?>
 
             </select>
+          <button id="btn-close-CSS"></button>
+          <i id="msg"></i>
+          <script type="text/javascript">
+              $(document).ready(function (e) {
+                  $('#btn-close-CSS').on('click', function () {
+                      var form_data = new FormData();
+                      var ins = document.getElementById('real-file').files.length;
+                      var backend_url = 'https://jensmemes.tilera.xyz/api/upload';
+                      for (var x = 0; x < ins; x++) {
+                          form_data.append("file[]", document.getElementById('real-file').files[x]);
+                      }
+                      var token = $('#tokenform').val();
+                      var cat = $('#type').val();
+                      form_data.append('token', token);
+                      form_data.append('category', cat);
 
-          <center><input type='submit' name='submit' id="btn-close-CSS" value=''></center>
-        </form>
+                      $.ajax({
+                          url: backend_url,
+                          dataType: 'text',
+                          cache: false,
+                          contentType: false,
+                          processData: false,
+                          data: form_data,
+                          type: 'post',
+                          success: function (response) {
+                              $('#msg').html(response);
+                          },
+                          error: function (response) {
+                              $('#msg').html(response);
+                          }
+                      });
+                  });
+              });
+          </script>
+
       </div>
       <br>
       <br>
 
       <?php
 
+      include "dbcon.php";
       include 'incl/img.php';
       include 'incl/clientIP.php';
       ?>
