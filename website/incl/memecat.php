@@ -61,10 +61,10 @@ $c = 0;
 foreach ($cats as $cate) {
     $cname = str_replace(' ', '_', $cate->name);
     if($c==0){
-        echo '<option value="'.$cname.'" selected>'.$cname.'</option>';
+        echo '<option value="'.$cname.'" selected>'.$cate->name.'</option>';
         $c=1;
     }
-    echo '<option value="'.$cname.'">'.$cname.'</option>';
+    echo '<option value="'.$cname.'">'.$cate->name.'</option>';
 }
 
 echo '</select></div>';
