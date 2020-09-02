@@ -9,10 +9,17 @@ $(document).ready(function(){
 ';
 global $cats;
 $c2 = 0;
+echo '
+      if(this.value=="all"){';
+    foreach ($cats as $catall){
+        echo '$("#'.$catall->id.'").show();
+    ';
+    }
+    echo '}';
 foreach ($cats as $cate){
     if($c2==0){
         echo '
-           if(this.value=="'.$cate->id.'"){
+           else if(this.value=="'.$cate->id.'"){
                ';
 
         foreach ($cats as $catdis) {
@@ -56,12 +63,14 @@ echo '
 
 global $cats;
 $c = 0;
+echo '<option value="all" selected>All</option>';
 foreach ($cats as $cate) {
     if($c==0){
-        echo '<option value="'.$cate->id.'" selected>'.$cate->id.'</option>';
+        echo '<option value="'.$cate->id.'">'.$cate->id.'</option>';
         $c=1;
+    }else{
+        echo '<option value="'.$cate->id.'">'.$cate->id.'</option>';
     }
-    echo '<option value="'.$cate->id.'">'.$cate->id.'</option>';
 }
 
 echo '</select></div>';
