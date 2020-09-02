@@ -1,6 +1,5 @@
 <div id="all">
 <?php
-include ('../dbcon.php');
 global $cats;
 foreach ($cats as $cate) {
     $parts = explode(":", $cate);
@@ -32,7 +31,6 @@ foreach ($cats as $cate) {
                                 ';
                     }
                 }
-        mysqli_free_result( $db_ergJens );
     echo '</div><br clear="all">';
 }
 
