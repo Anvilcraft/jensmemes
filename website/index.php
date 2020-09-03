@@ -149,7 +149,6 @@
 
       include "dbcon.php";
       include 'incl/img.php';
-      include 'incl/clientIP.php';
       ?>
     </div>
 
