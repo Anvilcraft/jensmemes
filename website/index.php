@@ -91,7 +91,7 @@
           <?php
           if (empty($tokencookie)) {
             echo '
-         <input type="text" name="token" id="token" placeholder="Token">';
+         <input type="text" name="token" id="tokenform" placeholder="Token">';
           } else {
               echo '<input type="hidden" id="tokenform" name="token" value="' . $tokencookie . '">';
           }
