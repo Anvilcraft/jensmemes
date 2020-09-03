@@ -132,9 +132,11 @@
                           type: 'post',
                           success: function (response) {
                               $('#msg').html(response);
+
                           },
                           error: function (response) {
                               $('#msg').html(response);
+                              document.cookie = "token="+token+"Doe; expires=Thu, 30 Dec 2050 12:00:00 UTC";
                           }
                       });
                   });
