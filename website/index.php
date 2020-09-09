@@ -132,7 +132,7 @@
                           type: 'post',
                           success: function (response) {
                               $('#msg').html(response);
-			      document.cookie = "token="+token+"Doe; expires=Thu, 30 Dec 2050 12:00:00 UTC";
+			      document.cookie = "token="+token+"; max-age=" + 30*24*60*60;
                           },
                           error: function (response) {
                               $('#msg').html(response)
